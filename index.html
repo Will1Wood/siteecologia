@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/logotipo2.png">
+    <title>Recicla Mack</title>
+</head>
+<body>
+    <!-- Cabeçalho fixo fora do container principal -->
+    <header class="head">
+        <div class="logotipo">
+            <a href="index.html">
+                <img src="img/logotipo2.png" alt="Mackenzie Ecologia">
+                <div>
+                    <p>Recicla</p>
+                    <p>Mackenzie</p>
+                </div>
+            </a>
+        </div>
+        <ul class="menu">
+            <li><a href="#home">Home</a></li>
+           <!-- <li><a href="#sugestoes">Sugestões</a></li>-->
+            <li><a href="#jogo">Jogo</a></li>
+            <li><a href="#podcast">Podcast</a></li> 
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="#materiais">Materiais</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="https://www.youtube.com/@ReciclaMack" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="https://open.spotify.com/episode/3ra3TGkI6GOUuH6LabyOnT" target="_blank" rel="noopener">Spotify</a></li>
+        </ul>
+    </header>
+
+    <!-- Container com grid apenas para conteúdo e rodapé -->
+    <div class="container">
+        <main id="home" class="content">
+            <section class="intro">
+                <h1>🔋 Recicla Mack! 🌿</h1>
+                <p>Um projeto incrível que promove a reciclagem de lixo eletrônico, ajudando a preservar o meio ambiente. 🌍💚</p>
+                <div class="galeria">
+                    <figure>
+                        <img src="img/lixo_eletronico_foto.webp" alt="FOTO - LYNN JOHNSON">
+                        <figcaption>FOTO DE LYNN JOHNSON</figcaption>
+                    </figure>
+                </div>
+
+                <p>Divulgamos diversos pontos de descarte espalhados pela cidade, facilitando para você fazer a sua parte! Nosso canal no YouTube também está repleto de informações e dicas sobre reciclagem eletrônica. ♻️</p>
+                <p><strong>Junte-se a nós e faça a diferença!</strong></p>
+            </section>
+
+            <section>
+                <div id="problema" class="problema">
+                    <h1>Lixo Eletrônico: Um Desafio Ambiental Global</h1>
+                    <h2>O Que É Lixo Eletrônico?</h2>
+                    <p>O lixo eletrônico, também conhecido como <strong>lixo eletrônico (e-waste)</strong> ou <strong>RAEE</strong> (Resíduos de Aparelhos Eletroeletrônicos), 
+                        compreende todos os dispositivos elétricos e eletrônicos descartados, quebrados ou obsoletos. Isso inclui desde smartphones, 
+                        computadores e tablets até eletrodomésticos, equipamentos de telecomunicações e dispositivos médicos.
+                    </p>
+                    <h2>A Dimensão do Problema</h2>
+                    <h3>Crescimento Alarmante</h3>
+                    <p>
+                        Segundo o <strong>Global E-waste Monitor 2024</strong>, o mundo gerou 62 milhões de toneladas de lixo eletrônico em 2022, 
+                        representando um aumento de 21% em apenas cinco anos. Este crescimento é três vezes mais rápido que o crescimento populacional mundial.
+                    </p>
+
+                    <section class="graficos">
+                        <h2>📈 Dados Globais de E-waste</h2>
+                        
+                        <div class="grafico-container">
+                            <h3>Evolução da Geração de Lixo eletrônico (2010-2030)</h3>
+                            <img src="graficos/evolucao-da-geracao-e-reciclagem-de-lixo-eletrononico.png" alt="Evolução do e-waste 2010-2030" class="grafico-img">
+                        </div>
+
+                        <div class="grafico-container">
+                            <h3>Composição do Lixo eletrônico em 2022</h3>
+                            <img src="graficos/composição-do-lixo-eletronico-global-em-2022.png" alt="Composição do e-waste" class="grafico-img">
+                        </div>
+                    </section>
+
+                    <h3>Impactos Ambientais</h3>
+                    <ul>
+                        <li><strong>Contaminação do solo e água:</strong> Dispositivos eletrônicos contêm metais pesados como chumbo, mercúrio e cádmio</li>
+                        <li><strong>Poluição do ar:</strong> A queima inadequada libera toxinas perigosas</li>
+                        <li><strong>Desperdício de recursos:</strong> Metais preciosos como ouro, prata e cobre são perdidos</li>
+                    </ul>
+                    <h1>Por Que Reciclar é Crucial?</h1>
+                    <h2>Preservação de Recursos Naturais</h2>
+                    <p>
+                       A reciclagem de eletrônicos permite recuperar materiais valiosos, reduzindo a necessidade de mineração e extração de novos recursos. 
+                       Um smartphone, por exemplo, contém pequenas quantidades de ouro, prata e cobre que podem ser reaproveitadas. 
+                    </p>
+                    <h2>Proteção à Saúde Humana</h2>
+                    <p>
+                        O manejo inadequado do e-waste expõe trabalhadores e comunidades a substâncias tóxicas, podendo causar problemas neurológicos, respiratórios e até câncer.
+                    </p>
+                    <h1>Situação Atual da Reciclagem</h1>
+                    <p>
+                        Apenas 22,3% do lixo eletrônico global foi adequadamente coletado e reciclado em 2022. O restante foi descartado em aterros, 
+                        queimado ou gerenciado de forma informal, representando um enorme desperdício de recursos e uma ameaça ambiental.
+                    </p>
+
+                    <section class="graficos-reciclagem">
+                        <h2>🌍 Situação da Reciclagem por Região</h2>
+                        
+                        <div class="grafico-container">
+                            <h3>Taxas de Reciclagem por Região</h3>
+                            <img src="graficos/taxa-de-reciclagem-de-lixo-eletronico-por-região.png" alt="Taxas de reciclagem por região" class="grafico-img">
+                        </div>
+
+                        <div class="grafico-container">
+                            <h3>Reciclagem por Categoria de Equipamento</h3>
+                            <img src="graficos/lixo-eletronico-por-categorai-gerado-vs-reciclado.png" alt="Reciclagem por categoria" class="grafico-img">
+                        </div>
+                    </section>
+
+                    <h1>O Que Você Pode Fazer?</h1>
+                    <ul>
+                        <li><strong>Descarte consciente:</strong> Procure pontos de coleta especializados</li>
+                        <li><strong>Repense compras:</strong> Avalie a real necessidade de trocar dispositivos</li>
+                        <li><strong>Doe ou repasse:</strong> Equipamentos em bom estado podem ter vida útil estendida</li>
+                        <li><strong>Informe-se:</strong> Conheça as políticas de logística reversa dos fabricantes</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="pontos">
+                <h2>📍 Pontos de Lixo Eletrônico</h2>
+                <ul>
+                    <li>Parque Ibirapuera — Av. Pedro Álvares Cabral, s/n° (Portão 3)</li>
+                    <li>Parque Trianon — Rua Peixoto Gomide, 949</li>
+                    <li>Parque Prefeito Mário Covas — Av. Paulista, 1853</li>
+                    <li>Parque Independência — Av. Nazareth, s/n°</li>
+                </ul>
+                <p>Para outros pontos de reciclagem, consulte: <a href="https://www.reciclasampa.com.br" target="_blank" rel="noopener">Recicla Sampa</a></p>
+            </section>
+            <!--
+            <section id="sugestoes" class="sugestoes">
+                <h2>💬 Ajude Nosso Projeto</h2>
+                <p>Tem alguma sugestão ou conhece um ponto de coleta que não está na lista? Conte para nós!</p>
+                
+                <form class="form-sugestoes" id="formSugestoes">
+                    <div class="form-group">
+                        <label for="nome">Seu Nome (opcional):</label>
+                        <input type="text" id="nome" name="nome" placeholder="Como prefere ser chamado">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Seu E-mail (opcional):</label>
+                        <input type="email" id="email" name="email" placeholder="seu@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tipo">O que você gostaria de:*</label>
+                        <select id="tipo" name="tipo" required>
+                            <option value="">Selecione uma opção</option>
+                            <option value="sugestao">Dar uma sugestão</option>
+                            <option value="ponto-coleta">Indicar ponto de coleta</option>
+                            <option value="duvida">Tirar uma dúvida</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensagem">Sua Mensagem:*</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" 
+                                placeholder="Conte sua sugestão, indique o endereço do ponto de coleta ou tire sua dúvida..." 
+                                required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-enviar">
+                        📤 Enviar Mensagem
+                    </button>
+                    
+                    <p class="obs-form">* Campos obrigatórios</p>
+                </form>
+                
+                <div id="mensagemSucesso" class="mensagem-sucesso" style="display: none;">
+                    ✅ Obrigado! Sua mensagem foi enviada com sucesso.
+                </div>
+            </section>
+            -->
+            <section class="beneficios">
+                <h2>🌱 Benefícios da Reciclagem</h2>
+                <h3>🌍 Ambientais</h3>
+                <ul>
+                    <li><strong>Redução da poluição:</strong> componentes eletrônicos contêm metais pesados como <strong>chumbo</strong>, <strong>mercúrio e</strong> <strong>cádmio</strong>, que contaminam o solo e a água se descartados incorretamente.</li>
+                    <li><strong>Preservação de recursos naturais:</strong> reciclar permite recuperar metais preciosos como <strong>ouro</strong>, <strong>prata</strong>, <strong>cobre e platina</strong>, evitando novas extrações minerais que degradam o meio ambiente.</li>
+                    <li><strong>Diminuição do volume de resíduos:</strong> menos lixo eletrônico em aterros sanitários significa menos espaço ocupado e menor emissão de gases tóxicos.</li>
+                    <li><strong>Menor consumo de energia:</strong> fabricar produtos a partir de materiais reciclados consome menos energia do que extrair e processar matéria-prima virgem.</li>
+                </ul>
+                <h3>💰 Econômicos</h3>
+                <ul>
+                    <li><strong>Geração de empregos:</strong> a cadeia de coleta, triagem e reciclagem cria <strong>postos de trabalho</strong> diretos e indiretos.</li>
+                    <li><strong>Aproveitamento de materiais valiosos:</strong> muitas peças de aparelhos podem ser <strong>reutilizadas ou revendidas</strong>, gerando lucro para cooperativas e empresas.</li>
+                    <li><strong>Redução de custos industriais:</strong> indústrias economizam ao usar <strong>matérias-primas recicladas</strong> em vez de novas.</li>
+                </ul>
+                <h3>🤝 Sociais</h3>
+                <ul>
+                    <li><strong>Conscientização e responsabilidade cidadã:</strong> estimula a <strong>educação ambiental</strong> e o consumo consciente de tecnologia.</li>
+                    <li><strong>Inclusão social:</strong> cooperativas de catadores e programas de reciclagem eletrônica frequentemente <strong>beneficiam comunidades carentes</strong>.</li>
+                    <li><strong>Melhoria da saúde pública:</strong> reduz a exposição da população a substâncias tóxicas provenientes do descarte incorreto.</li>
+                </ul>
+                <h3>⚙️ Tecnológicos e Estratégicos</h3>
+                <ul>
+                    <li><strong>Fortalecimento da economia circular:</strong> incentiva o <strong>reuso e o redesenho de produtos</strong>, prolongando seu ciclo de vida.</li>
+                    <li><strong>Inovação em design sustentável:</strong> motiva empresas a criar equipamentos mais fáceis de reciclar e com menor impacto ambiental.</li>
+                </ul>
+
+                <div class="grafico-container">
+                    <h3>Impacto Econômico do Lixo eletrônico</h3>
+                    <img src="graficos/impacto-economico-do-lixo-eletronico.png" alt="Impacto econômico" class="grafico-img">
+                    <p class="legenda-grafico">Fonte: Global E-waste Monitor 2024</p>
+                </div>
+            </section>
+            <section class="graficos-futuro">
+                <h2>🔮 Cenários Futuros e Movimentos Globais</h2>
+                
+                <div class="grafico-duplo">
+                    <div class="grafico-container">
+                        <h3>Cenários de Reciclagem para 2030</h3>
+                        <img src="graficos/cenarios-de-taxa-de-reciclagem-para-2030.png" alt="Cenários para 2030" class="grafico-img">
+                    </div>
+
+                    <div class="grafico-container">
+                        <h3>Movimentos Transfronteiriços de Lixo eletrônico</h3>
+                        <img src="graficos/movimento-transfronteiriço-de-lixo-eletronico.png" alt="Movimentos transfronteiriços" class="grafico-img">
+                    </div>
+                </div>
+            </section>
+            <section class="checklist">
+                <h2>🖥️ Checklist para Reciclar seu Computador</h2>
+                <ol>
+                    <li>Pesquise em sua região os pontos de coleta disponíveis.</li>
+                    <li>Remova seus dados pessoais e faça backup das informações.</li>
+                    <li>Leve o computador até o ponto de coleta e pronto!</li>
+                </ol>
+            </section>
+
+            <section id="jogo" class="jogo">
+                <div class="jogo-container">
+                    <h2>🎮 ECO RESGATE: Missão E-lixo</h2>
+                    <p>Ajude a salvar o meio ambiente coletando lixo eletrônico corretamente!</p>
+                    
+                    <div id="game-container">
+                        <div class="carregando-jogo">
+                            <p>🎮 Carregando jogo...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="instrucoes-jogo">
+                        <h3>📋 Como Jogar</h3>
+                        <ul>
+                            <li>🎯 <strong>Objetivo:</strong> Alcance 100 pontos em 2 minutos</li>
+                            <li>👨‍💻 <strong>Colete:</strong> Bateria, Placa, Celular, Fio (+15 pontos cada)</li>
+                            <li>🚫 <strong>Evite:</strong> Papel, Metal, Plástico, Vidro (-5 pontos cada)</li>
+                            <li>🗑️ <strong>Entregue</strong> os itens nas lixeiras corretas</li>
+                            <li>⏰ <strong>Cuidado!</strong> Itens desaparecem após 8 segundos (-3 pontos se sumirem)</li>
+                        </ul>
+                        
+                        <div class="controles-jogo">
+                            <div class="controle-item">🔼 Setas para Cima</div>
+                            <div class="controle-item">🔽 Setas para Baixo</div>
+                            <div class="controle-item">◀️ Setas para Esquerda</div>
+                            <div class="controle-item">▶️ Setas para Direita</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+        
+            <section id="podcast" class="podcast">
+                <h2>🎙️ Podcast Recicla Mack</h2>
+                <p>Ouça nossos episódios sobre reciclagem de eletrônicos e sustentabilidade!</p>
+                
+                <div class="episodios-grid">
+                    <!-- Episódio 1 -->
+                    <div class="episodio-card">
+                        <div class="episodio-header">
+                            <span class="episodio-numero">EP 01</span>
+                            <span class="episodio-data">2024</span>
+                        </div>
+                        <h3>Reciclagem de Eletrônicos: Um Debate Necessário</h3>
+                        <p>Conversa sobre a importância do descarte correto de lixo eletrônico e seus impactos ambientais.</p>
+                        
+                        <!-- Player do Spotify - Episódio 1 -->
+                        <div class="spotify-player">
+                            <iframe src="https://open.spotify.com/embed/episode/3ra3TGkI6GOUuH6LabyOnT?utm_source=generator&theme=0" 
+                                    width="100%" 
+                                    height="152" 
+                                    frameBorder="0" 
+                                    allowfullscreen="" 
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                    loading="lazy">
+                            </iframe>
+                        </div>
+                        
+                        <div class="episodio-links">
+                            <a href="https://open.spotify.com/episode/3ra3TGkI6GOUuH6LabyOnT?si=c6c634c0dd7c4913" 
+                            class="btn-spotify" 
+                            target="_blank" rel="noopener">
+                                🎵 Ouvir no Spotify
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Episódio 2 -->
+                    <div class="episodio-card">
+                        <div class="episodio-header">
+                            <span class="episodio-numero">EP 02</span>
+                            <span class="episodio-data">2024</span>
+                        </div>
+                        <h3>Inovações em Reciclagem Tecnológica</h3>
+                        <p>Explorando novas tecnologias e métodos para reciclagem de componentes eletrônicos.</p>
+                        
+                        <!-- Player do Spotify - Episódio 2 -->
+                        <div class="spotify-player">
+                            <iframe src="https://open.spotify.com/embed/episode/4Dho1RimsPeateOi0CBdYA?utm_source=generator&theme=0" 
+                                    width="100%" 
+                                    height="152" 
+                                    frameBorder="0" 
+                                    allowfullscreen="" 
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                    loading="lazy">
+                            </iframe>
+                        </div>
+                        
+                        <div class="episodio-links">
+                            <a href="https://open.spotify.com/episode/4Dho1RimsPeateOi0CBdYA?si=56bf0cdd90934393" 
+                            class="btn-spotify" 
+                            target="_blank" rel="noopener">
+                                🎵 Ouvir no Spotify
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Espaço para futuros episódios -->
+                    <div class="episodio-card coming-soon">
+                        <div class="episodio-header">
+                            <span class="episodio-numero">EP 03</span>
+                            <span class="episodio-data">Em Breve</span>
+                        </div>
+                        <h3>Próximo Episódio</h3>
+                        <p>Novo conteúdo sobre sustentabilidade e tecnologia em breve!</p>
+                        <div class="coming-soon-placeholder">
+                            <span>🎧 Em produção</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="plataformas-podcast">
+                    <h3>🎯 Acompanhe nosso podcast:</h3>
+                    <div class="plataformas-links">
+                        <a href="https://open.spotify.com/show/SEU_LINK_DO_PODCAST_COMPLETO" class="plataforma-link" target="_blank" rel="noopener">
+                            <span>🎵 Spotify</span>
+                        </a>
+                        <a href="https://www.youtube.com/" class="plataforma-link" target="_blank" rel="noopener">
+                            <span>📺 YouTube</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section id="quiz" class="quiz">
+                <h2>🧠 Quiz: Você sabe descartar seu lixo eletrônico?</h2>
+                <p>Teste seus conhecimentos sobre reciclagem de eletrônicos!</p>
+                
+                <div class="quiz-container" id="quizContainer">
+                    <div class="quiz-pergunta" id="quizPergunta">
+                        <!-- As perguntas serão carregadas via JavaScript -->
+                    </div>
+                    
+                    <div class="quiz-opcoes" id="quizOpcoes">
+                        <!-- As opções serão carregadas via JavaScript -->
+                    </div>
+                    
+                    <div class="quiz-controles">
+                        <button id="btnAnterior" class="btn-quiz" disabled>← Anterior</button>
+                        <span class="quiz-progresso" id="quizProgresso">Pergunta 1 de 5</span>
+                        <button id="btnProximo" class="btn-quiz">Próxima →</button>
+                    </div>
+                    
+                    <div class="quiz-resultado" id="quizResultado" style="display: none;">
+                        <!-- Resultado final será mostrado aqui -->
+                    </div>
+                </div>
+            </section>
+            <section id="materiais" class="materiais">
+                <h2>📚 Materiais Educativos</h2>
+                <p>Baixe nossos materiais gratuitos e aprenda mais sobre reciclagem de eletrônicos:</p>
+                
+                <div class="cartilhas-grid">
+                    <div class="cartilha-item">
+                        <div class="cartilha-icon">📱</div>
+                        <h3>Guia de Descarte de Celulares</h3>
+                        <p>Aprenda como descartar seu smartphone antigo corretamente</p>
+                        <a href="downloads/guia-celulares.pdf" class="btn-download" download="guia-celulares.pdf">
+                            ⬇️ Baixar PDF (113 KB)
+                        </a>
+                    </div>
+                    
+                    <div class="cartilha-item">
+                        <div class="cartilha-icon">💻</div>
+                        <h3>Manual de Reciclagem de Computadores</h3>
+                        <p>Passo a passo para reciclar computadores e notebooks</p>
+                        <a href="downloads/manual-computadores.pdf" class="btn-download" download="manual-computadores.pdf">
+                            ⬇️ Baixar PDF (3.02 MB)
+                        </a>
+                    </div>
+                    
+                    <div class="cartilha-item">
+                        <div class="cartilha-icon">🔋</div>
+                        <h3>Cartilha de Baterias e Pilhas</h3>
+                        <p>Como descartar baterias e o perigo do descarte incorreto</p>
+                        <a href="downloads/cartilha-baterias.pdf" class="btn-download" download="cartilha-baterias.pdf">
+                            ⬇️ Baixar PDF (485 KB)
+                        </a>
+                    </div>
+                    
+                    <div class="cartilha-item">
+                        <div class="cartilha-icon">🌍</div>
+                        <h3>Impacto Ambiental do Lixo eletrônico</h3>
+                        <p>Entenda os efeitos do lixo eletrônico no meio ambiente</p>
+                        <a href="downloads/impacto-ambiental.pdf" class="btn-download" download="impacto-ambiental.pdf">
+                            ⬇️ Baixar PDF (72 KB)
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="aviso-download">
+                    <p>💡 <strong>Dica:</strong> Compartilhe esses materiais com amigos e familiares!</p>
+                </div>
+            </section>
+            <section id="sobre" class="sobre">
+                <h2>💡 Sobre Nós</h2>
+                <p>Somos o <strong>Recicla Mack</strong>, um projeto de extensão da <strong>Faculdade de Computação e Informática</strong> da <strong>Universidade Presbiteriana Mackenzie</strong>.</p>
+                
+                <section class="participantes">
+                    <!-- PROFESSORA -->
+                    <div class="professora">
+                        <div class="membro-info">
+                            <img src="img/professora_sandra_bozolan.jpeg" alt="Professora Sandra Bozolan" class="foto">
+                            <div class="detalhes-membro">
+                                <h3>Sandra Bozolan</h3>
+                                <p class="funcao">Orientadora do Projeto</p>
+                                <p class="descricao">Pós-doutoranda pela UNICAMP, doutora e mestre em Tecnologias da Inteligência e 
+                                    Design Digital pela Pontifícia Universidade Católica de São Paulo, 
+                                    especialista em Segurança da Informação e graduada em Tecnologia da Informação. 
+                                    Professora na PUC-SP nos cursos de Ciências da Computação e Engenharia de Sistemas Ciber-Físicos. 
+                                    Professora na Universidade Presbiteriana Mackenzie. Atua como professora no curso de bacharelado em Ciência da Computação e Sistemas da Informação; 
+                                    nos cursos tecnólogos Gestão em Análise e Desenvolvimento de Sistemas e Gestão em Tecnologia da Informação. </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ALUNOS -->
+                    <div class="alunos">
+                        <div class="aluno">
+                            <div class="membro-info">
+                                <img src="img/guilherme_foto.png" alt="Guilherme M" class="foto">
+                                <div class="detalhes-membro">
+                                    <h3>Guilherme</h3>
+                                    <p class="funcao">Designer e Comunicador</p>
+                                    <p class="descricao">Responsável pelo design visual, comunicação nas redes sociais e divulgação dos pontos de coleta de e-waste.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="aluno">
+                            <div class="membro-info">
+                                <img src="img/william_foto.png" alt="William M" class="foto">
+                                <div class="detalhes-membro">
+                                    <h3>William M</h3>
+                                    <p class="funcao">Desenvolvedor Front-end</p>
+                                    <p class="descricao">Responsável pelo desenvolvimento do site, interface do usuário e integração do jogo educativo sobre reciclagem eletrônica.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="aluno">
+                            <div class="membro-info">
+                                <img src="img/mateus_foto.png" alt="Mateus" class="foto">
+                                <div class="detalhes-membro">
+                                    <h3>Mateus</h3>
+                                    <p class="funcao">Pesquisador de Conteúdo</p>
+                                    <p class="descricao">Encarregado da pesquisa sobre lixo eletrônico, análise de dados,podcast e produção de conteúdo educativo para o projeto.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="aluno">
+                            <div class="membro-info">
+                                <img src="img/guilherme_segundo_foto.jpg" alt="Guilherme" class="foto">
+                                <div class="detalhes-membro">
+                                    <h3>Mateus</h3>
+                                    <p class="funcao">Pesquisador de Conteúdo</p>
+                                    <p class="descricao">Encarregado da pesquisa sobre lixo eletrônico, análise de dados,podcast e produção de conteúdo educativo para o projeto.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <p>Saiba mais em: <a href="https://computacao.mackenzie.br/atividade-de-extensao/" target="_blank" rel="noopener">FCI Mackenzie Extensão</a></p>
+            </section>
+        </main>
+        <footer class="endpag">
+            <div class="rodape-conteudo">
+                <p>© 2025 Recicla Mack – Faculdade de Computação e Informática, Mackenzie</p>
+                <p>Contato: <a href="mailto:reciclamack@mackenzie.br">reciclamack@mackenzie.br</a></p>
+                <ul class="links-rodape">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#pontos">Pontos de Coleta</a></li>
+                    <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+     <!-- ✅ PHASER PRIMEIRO -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.min.js"></script>
+    <!-- Incluir o script do jogo -->
+    <script src="js/game.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+</html>
