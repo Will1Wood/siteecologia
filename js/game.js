@@ -750,13 +750,13 @@ function endGame(victory) {
     }).setOrigin(0.5).setDepth(11);
     gameOverElements.push(scoreText);
     
-    // Instrução para reiniciar
+    // Instrução para reiniciar - CORRIGIDO
     const restartText = this.add.text(400, 370, 'Pressione ESPAÇO para jogar novamente', {
         fontSize: '20px',
         color: '#ffff00',
         fontFamily: 'Arial, sans-serif'
     }).setOrigin(0.5).setDepth(11);
-    gameOverElements.push(restText);
+    gameOverElements.push(restartText); // ✅ CORRIGIDO - era restText
 }
 
 function restartGame() {
