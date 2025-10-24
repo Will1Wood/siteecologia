@@ -35,6 +35,7 @@ html {
     justify-content: space-between;
     align-items: center;
     padding: 10px 25px;
+    transition: all 0.3s ease;
 }
 
 /* Logotipo */
@@ -48,6 +49,7 @@ html {
 .logotipo img {
     height: auto;
     width: 60px;
+    transition: width 0.3s ease;
 }
 
 .logotipo a div p {
@@ -56,9 +58,10 @@ html {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     color: #009f43;
+    transition: font-size 0.3s ease;
 }
 
-/* Menu */
+/* Menu Desktop */
 .menu {
     list-style: none;
     display: flex;
@@ -66,6 +69,7 @@ html {
     padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    transition: all 0.3s ease;
 }
 
 .menu li a {
@@ -75,10 +79,176 @@ html {
     color: #009f43;
     cursor: pointer;
     padding: 5px 10px;
+    transition: all 0.3s ease;
 }
 
 .menu li a:hover {
     text-decoration: underline;
+    background-color: rgba(0, 159, 67, 0.1);
+    border-radius: 4px;
+}
+
+/* Menu Mobile - Hamburger */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1003; /* Mais alto que tudo */
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #009f43;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Menu Mobile - Ativo */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Overlay para mobile */
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1001; /* Abaixo do menu mas acima do conteúdo */
+}
+
+.menu-overlay.active {
+    display: block;
+}
+
+/* RESPONSIVIDADE DO HEADER */
+@media (max-width: 1024px) {
+    .menu {
+        gap: 15px;
+    }
+    
+    .menu li a {
+        font-size: 14px;
+        padding: 5px 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .head {
+        padding: 10px 15px;
+        flex-wrap: wrap;
+    }
+    
+    .logotipo img {
+        width: 45px;
+    }
+    
+    .logotipo a div p {
+        font-size: 14px;
+    }
+    
+    /* Esconde menu desktop, mostra hamburger */
+    .menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 80px 30px 30px;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        gap: 0;
+        z-index: 1002; /* Maior que o overlay */
+    }
+    
+    .menu.active {
+        right: 0;
+    }
+    
+    .menu li {
+        width: 100%;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .menu li:last-child {
+        border-bottom: none;
+    }
+    
+    .menu li a {
+        display: block;
+        padding: 15px 0;
+        font-size: 16px;
+        width: 100%;
+        border-radius: 0;
+        color: #009f43 !important; /* Força a cor */
+        font-weight: 500;
+        position: relative;
+        z-index: 1003; /* Garante que fique acima de tudo */
+    }
+    
+    .menu li a:hover {
+        background-color: #f8f9fa;
+        color: #007b35 !important;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    /* Ajusta o container para o header mobile */
+    .container {
+        padding-top: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .head {
+        padding: 8px 12px;
+    }
+    
+    .logotipo img {
+        width: 40px;
+    }
+    
+    .logotipo a div p {
+        font-size: 13px;
+    }
+    
+    .menu {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .menu.active {
+        right: 0;
+    }
+    
+    .container {
+        padding-top: 65px;
+    }
 }
 
 /* Conteúdo principal */
@@ -148,7 +318,6 @@ html {
 
 .content .galeria img {
     width: 100%;
-    /*max-width: 400px;*/
     height: auto;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -162,7 +331,6 @@ html {
 }
 
 /* Participantes */
-/* ESTILOS PARA SEÇÃO SOBRE NÓS ATUALIZADA */
 .participantes {
     text-align: center;
     margin-top: 40px;
@@ -248,56 +416,6 @@ html {
     background: linear-gradient(135deg, #f8f9fa 0%, #f0f8f0 100%);
     height: 100%;
     margin-bottom: 0;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .membro-info {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-    
-    .alunos {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .professora .membro-info {
-        max-width: 100%;
-    }
-    
-    .membro-info .foto {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .professora .foto {
-        width: 100px;
-        height: 100px;
-    }
-}
-
-@media (max-width: 480px) {
-    .alunos {
-        grid-template-columns: 1fr;
-    }
-    
-    .membro-info {
-        padding: 15px;
-    }
-    
-    .detalhes-membro h3 {
-        font-size: 18px;
-    }
-    
-    .funcao {
-        font-size: 14px;
-    }
-    
-    .descricao {
-        font-size: 13px;
-    }
 }
 
 /*jogo*/
@@ -534,27 +652,6 @@ html {
     transform: translateY(-2px);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .episodios-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .plataformas-links {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .plataforma-link {
-        width: 200px;
-        text-align: center;
-    }
-    
-    .podcast {
-        padding: 30px 15px;
-    }
-}
-
 /* ESTILOS DO FORMULÁRIO */
 .sugestoes {
     background: #f8f9fa;
@@ -684,7 +781,6 @@ html {
     padding: 30px;
     border-radius: 10px;
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); /* suporte para Safari 9+ */
 }
 
 .quiz-pergunta {
@@ -870,29 +966,6 @@ html {
     border-left: 4px solid #009f43;
 }
 
-/* RESPONSIVIDADE */
-@media (max-width: 768px) {
-    .sugestoes, .quiz, .materiais {
-        padding: 25px 15px;
-        margin: 25px 0;
-    }
-    
-    .cartilhas-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .quiz-controles {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        font-size: 14px;
-    }
-}
-
 /* Rodapé */
 .endpag {
     grid-area: endpag;
@@ -972,8 +1045,33 @@ html {
     margin-top: 8px;
 }
 
-/* Responsividade */
+/* Ajuste para âncoras com cabeçalho fixo */
+section[id] {
+    scroll-margin-top: 80px;
+}
+
+/* RESPONSIVIDADE GERAL */
 @media (max-width: 768px) {
+    .sugestoes, .quiz, .materiais {
+        padding: 25px 15px;
+        margin: 25px 0;
+    }
+    
+    .cartilhas-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .quiz-controles {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 14px;
+    }
+    
     .grafico-duplo {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -983,32 +1081,75 @@ html {
         padding: 20px;
         margin: 20px 0;
     }
+    
+    .participantes .membro-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .alunos {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .professora .membro-info {
+        max-width: 100%;
+    }
+    
+    .membro-info .foto {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .professora .foto {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .episodios-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .plataformas-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .plataforma-link {
+        width: 200px;
+        text-align: center;
+    }
+    
+    .podcast {
+        padding: 30px 15px;
+    }
+    
+    /* Ajuste para âncoras em mobile */
+    section[id] {
+        scroll-margin-top: 70px;
+    }
 }
 
-/* Ajuste para âncoras com cabeçalho fixo */
-section[id] {
-    scroll-margin-top: 80px;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .head {
-        padding: 10px 15px;
+@media (max-width: 480px) {
+    .alunos {
+        grid-template-columns: 1fr;
     }
-    .logotipo img {
-        width: 40px;
+    
+    .membro-info {
+        padding: 15px;
     }
-    .menu {
-        gap: 10px;
+    
+    .detalhes-membro h3 {
+        font-size: 18px;
     }
-    .menu li a {
+    
+    .funcao {
         font-size: 14px;
     }
-    .container {
-        padding-top: 60px;
-    }
-    .content {
-        padding: 20px;
+    
+    .descricao {
+        font-size: 13px;
     }
 }
 
