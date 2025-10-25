@@ -774,6 +774,7 @@ html {
 
 .plataformas-podcast h3 {
     margin-bottom: 20px;
+    color: #1DB954;
 }
 
 .plataformas-links {
@@ -781,6 +782,10 @@ html {
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
+}
+
+.plataformas-links a {
+    color: #1DB954;
 }
 
 .plataforma-link {
