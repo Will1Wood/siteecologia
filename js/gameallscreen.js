@@ -1,14 +1,14 @@
 // ECO RESGATE: Missão E-lixo - Jogo em Phaser.js
 // Arquivo: js/game.js
-// VERSÃO COMPLETA COM TODAS AS FUNÇÕES
+// VERSÃO COM ESCALA CORRIGIDA
 
-console.log('✅ game.js carregado - Versão Completa');
+console.log('✅ game.js carregado - Versão Escala Corrigida');
 
 // Detectar dispositivo móvel
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 const isTablet = /iPad|Android|Tablet/i.test(navigator.userAgent);
 
-// Configuração do jogo
+// Configuração do jogo com escala corrigida
 const config = {
     type: Phaser.AUTO,
     width: 800,
@@ -16,7 +16,7 @@ const config = {
     parent: 'game-container',
     backgroundColor: '#228B22',
     scale: {
-        mode: Phaser.Scale.FIT,
+        mode: Phaser.Scale.NONE, // Mudado para NONE para manter tamanho fixo
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
     physics: {
@@ -80,8 +80,21 @@ let mobileControls = [];
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Iniciando jogo...');
     console.log('📱 Dispositivo:', isMobile ? 'Mobile' : isTablet ? 'Tablet' : 'Desktop');
+    
+    // Ajustar escala para mobile/tablet
+    if (isMobile || isTablet) {
+        config.scale.mode = Phaser.Scale.FIT;
+        console.log('📐 Usando escala FIT para mobile');
+    } else {
+        config.scale.mode = Phaser.Scale.NONE;
+        console.log('📐 Usando escala FIXA para desktop');
+    }
+    
     const game = new Phaser.Game(config);
+
 });
+
+// ... (TODO O RESTO DO CÓDIGO PERMANECE EXATAMENTE IGUAL) ...
 
 function preload() {
     console.log('📦 Carregando assets...');
@@ -454,8 +467,6 @@ function showStartScreen() {
         startScreenElements.push(text);
     });
 }
-
-// ========== FUNÇÕES DO JOGO QUE ESTAVAM FALTANDO ==========
 
 function startGame() {
     if (gameStarted) return;
@@ -872,4 +883,4 @@ function clearGameOverScreen() {
     gameOverElements = [];
 }
 
-console.log('✅ game.js totalmente carregado com todas as funções!');
+console.log('✅ game.js totalmente carregado com escala corrigida!');
