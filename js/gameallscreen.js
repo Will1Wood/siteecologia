@@ -1,8 +1,8 @@
 // ECO RESGATE: Missão E-lixo - Jogo em Phaser.js
 // Arquivo: js/game.js
-// VERSÃO CORRIGIDA - LAYOUT DESKTOP E MOBILE SEPARADOS
+// VERSÃO COMPLETA COM TODAS AS FUNÇÕES
 
-console.log('✅ game.js carregado - Versão Corrigida');
+console.log('✅ game.js carregado - Versão Completa');
 
 // Detectar dispositivo móvel
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -455,7 +455,7 @@ function showStartScreen() {
     });
 }
 
-// ... (MANTENHA TODAS AS OUTRAS FUNÇÕES DO JOGO ORIGINAIS A PARTIR DAQUI)
+// ========== FUNÇÕES DO JOGO QUE ESTAVAM FALTANDO ==========
 
 function startGame() {
     if (gameStarted) return;
@@ -597,7 +597,181 @@ function updatePlayer() {
     this.physics.overlap(player, items, collectItem, null, this);
 }
 
-// ... (MANTENHA TODAS AS OUTRAS FUNÇÕES ORIGINAIS: updatePlayerAnimation, spawnItem, updateItemTimeBar, collectItem, checkRecyclingDelivery, updateGameTimer, updateScore)
+function updatePlayerAnimation() {
+    const currentTime = this.time.now;
+    
+    if (playerState === "walking") {
+        if (currentTime - lastUpdate > animationSpeed) {
+            animationFrame = (animationFrame + 1) % 2;
+            lastUpdate = currentTime;
+        }
+    } else {
+        animationFrame = 0;
+    }
+    
+    // Determinar sprite atual
+    let spriteKey;
+    if (playerState === "idle") {
+        spriteKey = `idle_${playerDirection}`;
+    } else {
+        const walkFrames = {
+            'down': ['walk_down_1', 'walk_down_2'],
+            'up': ['walk_up_1', 'walk_up_2'],
+            'left': ['walk_left_1', 'walk_left_2'],
+            'right': ['walk_right_1', 'walk_right_2']
+        };
+        spriteKey = walkFrames[playerDirection][animationFrame];
+    }
+    
+    if (player.texture.key !== spriteKey) {
+        player.setTexture(spriteKey);
+    }
+}
+
+function spawnItem() {
+    const x = Phaser.Math.Between(50, 750);
+    const y = Phaser.Math.Between(150, 550);
+    const itemType = Phaser.Math.RND.pick(allItemTypes);
+    
+    const item = items.create(x, y, itemType)
+        .setDisplaySize(30, 30)
+        .setDepth(2);
+    item.setData('type', itemType);
+    item.setData('spawnTime', this.time.now);
+    
+    // Barra de tempo
+    const timeBarBg = this.add.rectangle(x, y - 20, 30, 3, 0x000000)
+        .setOrigin(0.5)
+        .setDepth(2);
+    
+    const timeBar = this.add.rectangle(x - 15, y - 20, 30, 3, 0x00ff00)
+        .setOrigin(0, 0.5)
+        .setDepth(3);
+    
+    item.setData('timeBar', timeBar);
+    item.setData('timeBarBg', timeBarBg);
+}
+
+function updateItemTimeBar(item, currentTime) {
+    const timeBar = item.getData('timeBar');
+    const timeBarBg = item.getData('timeBarBg');
+    
+    if (!timeBar || !timeBarBg) return;
+    
+    const elapsed = currentTime - item.getData('spawnTime');
+    const remaining = Math.max(0, itemLifetime - elapsed);
+    const ratio = remaining / itemLifetime;
+    
+    // Atualizar posição das barras
+    timeBarBg.x = item.x;
+    timeBarBg.y = item.y - 20;
+    
+    timeBar.x = item.x - 15;
+    timeBar.y = item.y - 20;
+    
+    // Atualizar largura e cor da barra
+    timeBar.width = 30 * ratio;
+    timeBar.fillColor = ratio > 0.3 ? 0x00ff00 : 0xff0000;
+}
+
+function collectItem(player, item) {
+    const itemType = item.getData('type');
+    
+    // Remover barras de tempo
+    if (item.getData('timeBar')) {
+        item.getData('timeBar').destroy();
+    }
+    if (item.getData('timeBarBg')) {
+        item.getData('timeBarBg').destroy();
+    }
+    
+    // Coletar item
+    if (eWasteTypes.includes(itemType)) {
+        if (!inventory[itemType]) {
+            inventory[itemType] = true;
+            // Atualizar inventário visual
+            inventoryTexts[itemType].setAlpha(1);
+            
+            // Tocar som de coletar e-lixo
+            playSound.call(this, 'coletarEletronico', 0.6);
+            
+            item.destroy();
+        }
+    } else {
+        // Penalidade por item comum
+        updateScore.call(this, -5);
+        
+        // Tocar som de coletar item comum
+        playSound.call(this, 'coletarComum', 0.6);
+        
+        item.destroy();
+    }
+}
+
+function checkRecyclingDelivery() {
+    recyclingPoints.forEach(zone => {
+        if (Phaser.Geom.Rectangle.Contains(
+            new Phaser.Geom.Rectangle(zone.x, zone.y, zone.width, zone.height),
+            player.x, player.y
+        )) {
+            if (inventory[zone.type]) {
+                // Entrega bem-sucedida
+                inventory[zone.type] = false;
+                inventoryTexts[zone.type].setAlpha(0.3);
+                updateScore.call(this, 15);
+                
+                // Tocar som de entrega
+                playSound.call(this, 'entregarItem', 0.8);
+                
+                // Efeito visual
+                this.tweens.add({
+                    targets: player,
+                    scale: 1.2,
+                    duration: 150,
+                    yoyo: true
+                });
+            }
+        }
+    });
+}
+
+function updateGameTimer(currentTime) {
+    const elapsed = (currentTime - startTime) / 1000;
+    const remaining = Math.max(0, gameTime - elapsed);
+    const minutes = Math.floor(remaining / 60);
+    const seconds = Math.floor(remaining % 60);
+    
+    // Atualizar texto do tempo
+    timeText.setText(`Tempo: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
+    
+    // Mudar cor conforme o tempo
+    if (remaining > 30) {
+        timeText.setColor('#00ff00');
+    } else if (remaining > 10) {
+        timeText.setColor('#ffff00');
+    } else {
+        timeText.setColor('#ff0000');
+    }
+    
+    // Verificar fim do jogo por tempo
+    if (remaining <= 0 && !gameOver && !gameWon) {
+        endGame.call(this, false);
+    }
+}
+
+function updateScore(points) {
+    score += points;
+    scoreText.setText(`Pontuação: ${score}`);
+    
+    // Efeito de cor
+    if (points > 0) {
+        scoreText.setColor('#00ff00');
+        this.time.delayedCall(500, () => scoreText.setColor('#ffffff'));
+    } else if (points < 0) {
+        scoreText.setColor('#ff0000');
+        this.time.delayedCall(500, () => scoreText.setColor('#ffffff'));
+    }
+}
 
 function endGame(victory) {
     gameOver = !victory;
@@ -698,6 +872,4 @@ function clearGameOverScreen() {
     gameOverElements = [];
 }
 
-// ... (MANTENHA AS FUNÇÕES updatePlayerAnimation, spawnItem, updateItemTimeBar, collectItem, checkRecyclingDelivery, updateGameTimer, updateScore DO CÓDIGO ORIGINAL)
-
-console.log('✅ game.js totalmente carregado e corrigido');
+console.log('✅ game.js totalmente carregado com todas as funções!');
